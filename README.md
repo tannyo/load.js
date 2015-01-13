@@ -10,7 +10,7 @@ Edit the array of script location objects in load.js. Include load.js at the bot
 
 ## Settings
 
-**URL Object**
+**Script Object**
 ```
 {
   src: string,
@@ -40,6 +40,11 @@ scripts = [
   {src: '/js/downloads.js?201412031612', wait: false, add: /^downloads/.test(document.body.className)}
 ];
 ```
+
+## Notes
+If you do not need to support IE browsers less than IE 9, use load-modern.js as it deletes the approximately 30 lines of code that supports IE versions less than 9. There is a minified version of each version of load.js.
+
+The minified versions do not minify the scripts array so that you can easily edit the array of scripts.
 
 ## Issues
 
