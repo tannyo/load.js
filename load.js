@@ -95,7 +95,7 @@
 
     }
 
-    if (debug) {
+    if (typeof debug !== "undefined" && debug) {
       console.log("loading: %c%s %c%s", "color:blue", script.src, "color:darkred", (scripts[i].wait ? "synchronous" : "asynchronous"));
     }
 

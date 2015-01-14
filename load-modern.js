@@ -45,20 +45,16 @@
     // Should we wait to load the next script after this script has loaded?
     if (scripts[i].wait) {
       script.onload = scriptLoaded;
-      // Add the script src.
-      script.src = scripts[i].src;
-      // Wait until the script has loaded before adding it to the DOM.
-    } else {
-      // Add the script src.
-      script.src = scripts[i].src;
-
-      // Append the script to the body to allow multiple scripts to load at the
-      // same time.
-      document.body.appendChild(script);
-
     }
 
-    if (debug) {
+    // Add the script src.
+    script.src = scripts[i].src;
+
+    // Append the script to the body to allow multiple scripts to load at the
+    // same time.
+    document.body.appendChild(script);
+
+    if (typeof debug !== "undefined" && debug) {
       console.log("loading: %c%s %c%s", "color:blue", script.src, "color:darkred", (scripts[i].wait ? "synchronous" : "asynchronous"));
     }
 
