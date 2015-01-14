@@ -67,7 +67,9 @@
           // successfully and not if there is an error.
           try {
             script.children;
-          } catch (ignore) {}
+          } catch (ignore) {
+            // Ignore
+          }
           if (firstState === "loaded" && script.readyState === "loading") {
             // Error loading required script. Usually an error function would be
             // called, but since we are not detecting errors, no error function
@@ -75,6 +77,9 @@
             script.onreadystatechange = null;
           }
         };
+      } else {
+        // Not IE, load the script.
+        document.body.appendChild(script);
       }
 
       // Add the script src.
